@@ -1,0 +1,2 @@
+# Brasil IPTV
+# O projeto utiliza apenas bibliotecas padrão do Python.
