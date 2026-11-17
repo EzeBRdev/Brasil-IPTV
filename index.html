@@ -4,30 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#071b16">
-
-    <title>Brasil IPTV | TV brasileira</title>
-
     <meta name="description"
-          content="Catálogo open-source de canais brasileiros gratuitos e autorizados.">
+          content="Brasil IPTV: catálogo open-source de emissoras brasileiras com fontes oficiais e autorização verificada.">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>Brasil IPTV | Televisão brasileira</title>
+
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="icon" href="./icons/icon-192.png">
 </head>
 
 <body>
 
 <header class="header">
-    <a href="#" class="logo">
-        <span class="logo-icon">🇧🇷</span>
-        <span>BRASIL<span class="green"> IPTV</span></span>
+    <a href="#inicio" class="logo">
+        <span>🇧🇷</span>
+        BRASIL<span class="green"> IPTV</span>
     </a>
 
-    <nav>
+    <nav aria-label="Menu principal">
         <a href="#inicio">Início</a>
         <a href="#canais">Canais</a>
         <a href="#sobre">Sobre</a>
         <a href="https://github.com/EzeBRdev/Brasil-IPTV"
-           target="_blank" rel="noopener">GitHub ↗</a>
+           target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+        </a>
     </nav>
 </header>
 
@@ -35,6 +42,7 @@
 
     <section class="hero" id="inicio">
         <div class="hero-content">
+
             <span class="tag">● PROJETO OPEN SOURCE</span>
 
             <h1>
@@ -50,10 +58,11 @@
             <a href="#canais" class="main-button">
                 Explorar canais →
             </a>
+
         </div>
 
         <div class="hero-card">
-            <span class="tv-icon">📺</span>
+            <div class="tv-icon">📺</div>
             <h3>Brasil IPTV</h3>
             <p>Conteúdo brasileiro. Acesso organizado.</p>
             <span class="status">Fontes verificadas</span>
@@ -65,23 +74,24 @@
             <strong id="total-canais">0</strong>
             <span>Canais cadastrados</span>
         </div>
-        <div>
-            <strong>100%</strong>
-            <span>Foco em autorização</span>
-        </div>
+
         <div>
             <strong>Open</strong>
             <span>Código aberto</span>
         </div>
+
+        <div>
+            <strong>Brasil</strong>
+            <span>Projeto brasileiro</span>
+        </div>
     </section>
 
     <section class="channels-section" id="canais">
+
         <div class="section-heading">
-            <div>
-                <span class="tag">CATÁLOGO</span>
-                <h2>Explore os canais</h2>
-                <p>Encontre emissoras brasileiras por nome.</p>
-            </div>
+            <span class="tag">CATÁLOGO</span>
+            <h2>Explore os canais</h2>
+            <p>Encontre emissoras brasileiras por nome.</p>
         </div>
 
         <div class="search-box">
@@ -94,38 +104,37 @@
         </div>
 
         <div class="categories">
-            <button class="category active" data-category="Todos">
-                Todos
-            </button>
-            <button class="category" data-category="Pública">
-                Públicas
-            </button>
-            <button class="category" data-category="Educativa">
-                Educativas
-            </button>
-            <button class="category" data-category="Legislativa">
-                Legislativas
-            </button>
-            <button class="category" data-category="Cultural">
-                Culturais
-            </button>
+            <button class="category active"
+                    data-category="Todos">Todos</button>
+
+            <button class="category"
+                    data-category="Pública">Públicas</button>
+
+            <button class="category"
+                    data-category="Educativa">Educativas</button>
+
+            <button class="category"
+                    data-category="Legislativa">Legislativas</button>
+
+            <button class="category"
+                    data-category="Cultural">Culturais</button>
         </div>
 
-        <div id="channels" class="channel-grid">
+        <div id="channels" class="channel-grid" aria-live="polite">
             <div class="empty-state">
                 <span>📡</span>
                 <h3>Catálogo em construção</h3>
-                <p>
-                    Estamos preparando a lista de emissoras
-                    com fontes oficiais e autorização.
-                </p>
+                <p>Estamos preparando a lista de emissoras autorizadas.</p>
             </div>
         </div>
+
     </section>
 
     <section class="about" id="sobre">
         <span class="tag">NOSSA MISSÃO</span>
+
         <h2>Um projeto feito para todos.</h2>
+
         <p>
             O Brasil IPTV é um projeto independente e open-source
             dedicado à organização de emissoras brasileiras.
@@ -134,7 +143,7 @@
         </p>
 
         <a href="https://github.com/EzeBRdev/Brasil-IPTV"
-           target="_blank" rel="noopener">
+           target="_blank" rel="noopener noreferrer">
             Conheça o projeto no GitHub →
         </a>
     </section>
@@ -150,7 +159,17 @@
     <p>© 2026 Brasil IPTV · Fontes autorizadas.</p>
 </footer>
 
-<script src="app.js"></script>
+<script src="./app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .then(() => console.log("Brasil IPTV offline ativado!"))
+            .catch(error => console.error("Erro no Service Worker:", error));
+    });
+}
+</script>
 
 </body>
 </html>
