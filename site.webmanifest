@@ -1,0 +1,12 @@
+{
+  "name": "Brasil IPTV",
+  "short_name": "Brasil IPTV",
+  "description": "Catálogo de canais brasileiros gratuitos e autorizados.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#071b16",
+  "theme_color": "#071b16"
+}
