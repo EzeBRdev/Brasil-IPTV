@@ -1,0 +1,31 @@
+name: Validar Brasil IPTV
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validar arquivos JSON
+        run: python scripts/validate.py
+
+      - name: Gerar playlist M3U
+        run: python scripts/generate_m3u.py
+
+      - name: Gerar catálogo
+        run: python scripts/build.py
